@@ -3,7 +3,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export default function allOrders() {
+export default function AllOrders() {
   return (
     <div className="min-h-screen flex justify-center items-center p-4">
       <div className="max-w-2xl w-full text-center space-y-6">
