@@ -55,7 +55,7 @@ export default function Navbar() {
       <div className="border-b border-gray-300">
         <nav className="flex justify-between mx-auto w-[90%] items-center gap-4 py-3">
           {/* Logo - Left */}
-          <div className="left flex-shrink-0">
+          <div className="left shrink-0">
             <span className="text-2xl font-bold">
               <Link href="/">Exclusive</Link>
             </span>
@@ -126,7 +126,7 @@ export default function Navbar() {
                     </div>
                     
                     {isProfileOpen && (
-                      <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gradient-to-b from-[#4A148C] via-[#6A1B9A] to-[#7B1FA2] backdrop-blur-lg z-50">
+                      <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 backdrop-blur-lg z-50">
                         <div className="py-2">
                           <div 
                             onClick={() => {
