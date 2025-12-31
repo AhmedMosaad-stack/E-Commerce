@@ -25,6 +25,7 @@ export default async function Details({ params }: { params: Promise<Params> }): 
   const sizes: string[] = ["XS", "S", "M", "L", "XL"];
   const products: Product[] = await getAllProducts();
 const token = await getMytoken()
+console.log(token);
 
   return (
     <div className=" mx-auto w-[90%] p-10">

@@ -7,7 +7,7 @@ export default async function bankPayment(
   cartId: string,
   formValues: paymentSchemaType
 ) {
-  const url = "http://localhost:3000/";
+  const url = process.env.NEXT_PUBLIC_APP_URL || "https://e-commerce-theta-virid-32.vercel.app/";
   const token = await getMytoken();
 
   if (!token) {
