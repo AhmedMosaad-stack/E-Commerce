@@ -17,7 +17,9 @@ export default async function Home() {
   return (
     <>
       <ScrollAnimation />
-      <FirstSlider />
+      <div className="scroll-section">
+        <FirstSlider />
+      </div>
       <div className="scroll-section">
         <TodaySale products={products} />
       </div>

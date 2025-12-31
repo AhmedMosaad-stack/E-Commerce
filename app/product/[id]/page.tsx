@@ -31,6 +31,7 @@ console.log(token);
   return (
     <div className=" mx-auto w-[90%] p-10">
       <ScrollAnimation />
+      <div className="scroll-section">
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-12 gap-6">
         <div className="col-span-2">
@@ -146,9 +147,10 @@ console.log(token);
           </div>
         </div>
       </div>
+      </div>
 
       {/* Mobile Layout with Swiper */}
-      <div className="md:hidden">
+      <div className="scroll-section md:hidden">
         <ProductImageSwiper
           images={data.images}
           imageCover={data.imageCover}
