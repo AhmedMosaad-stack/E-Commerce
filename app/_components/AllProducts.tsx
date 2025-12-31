@@ -23,13 +23,21 @@ export default function AllProducts({ products }: { products: Product[] }) {
         <h2 className="text-2xl font-semibold ">Explore Our Products</h2>
       
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-7 mt-5">
-        {filteredProducts.slice(0, visibleProducts).map((product: Product) => (
-          <div key={product._id}>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-7 mt-5 transition-all duration-500">
+        {filteredProducts.slice(0, visibleProducts).map((product: Product, index) => (
+          <div 
+            key={product._id}
+            className={`${index < 8 ? '' : 'opacity-0 animate-slideUpFade'}`}
+            style={index >= 8 ? { 
+              animationDelay: `${(index - 8) * 30}ms`,
+              animationFillMode: 'forwards'
+            } : {}}
+          >
             <ProductCard product={product} />
           </div>
         ))}
       </div>
+      <div className="transition-all duration-500">
       {visibleProducts === 8 ? (
         <>
           <Button
@@ -51,6 +59,7 @@ export default function AllProducts({ products }: { products: Product[] }) {
           </Button>
         </>
       )}
+      </div>
     </div>
   );
 }

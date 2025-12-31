@@ -7,10 +7,12 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import ScrollAnimation from "../_components/ScrollAnimation";
 
 export default function About() {
   return (
     <div className="w-[90%] mx-auto py-10 mb-32">
+      <ScrollAnimation />
       {/* Breadcrumb */}
       <div className="text-sm text-gray-600 mb-16">
         <Link href="/" className="hover:text-black">
@@ -20,7 +22,7 @@ export default function About() {
       </div>
 
       {/* Our Story Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-20 md:mb-32">
+      <div className="scroll-section grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-20 md:mb-32">
         <div className="flex flex-col justify-center order-2 md:order-1">
           <h1 className="text-3xl md:text-5xl font-semibold mb-6 md:mb-8">Our Story</h1>
           <div className="space-y-4 text-base">
@@ -50,7 +52,7 @@ export default function About() {
       </div>
 
         {/* Statistics Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-20 md:mb-32">
+        <div className="scroll-section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-20 md:mb-32">
           {/* Sellers */}
           <div className="border border-gray-300 rounded-sm p-8 flex flex-col items-center justify-center hover:bg-[#DB4444] hover:border-[#DB4444] hover:text-white transition-all group">
             <div className="w-16 h-16 rounded-full bg-gray-300 group-hover:bg-white/30 flex items-center justify-center mb-4">
@@ -97,7 +99,7 @@ export default function About() {
         </div>
 
         {/* Team Section */}
-        <div className="mb-20">
+        <div className="scroll-section mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {/* Tom Cruise */}
             <div>
@@ -171,7 +173,7 @@ export default function About() {
         </div>
 
         {/* Services Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20">
+        <div className="scroll-section grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
           {/* Free Delivery */}
           <div className="flex flex-col items-center text-center">
             <div className="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mb-6">

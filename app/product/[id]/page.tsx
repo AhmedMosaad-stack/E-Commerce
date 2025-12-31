@@ -7,6 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { getAllProducts } from "@/lib/services/getAllProducts";
 import RelatedProducts from "../../_components/RelatedProducts";
 import ProductImageSwiper from "../../_components/ProductImageSwiper";
+import ScrollAnimation from "../../_components/ScrollAnimation";
 import "../product.css";
 import { getMytoken } from "@/utilities/getMytoken";
 
@@ -29,6 +30,7 @@ console.log(token);
 
   return (
     <div className=" mx-auto w-[90%] p-10">
+      <ScrollAnimation />
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-12 gap-6">
         <div className="col-span-2">
@@ -220,10 +222,12 @@ console.log(token);
           </div>
         </div>
       </div>
-      <div className="title w-full mt-20 py-2 px-9 before:content-[''] before:w-5 before:h-full relative before:absolute before:left-0 before:top-0 before:bg-red-600 before:rounded-sm text-red-600 font-semibold text-[13px]">
-        Related Item
+      <div className="scroll-section">
+        <div className="title w-full mt-20 py-2 px-9 before:content-[''] before:w-5 before:h-full relative before:absolute before:left-0 before:top-0 before:bg-red-600 before:rounded-sm text-red-600 font-semibold text-[13px]">
+          Related Item
+        </div>
+        <RelatedProducts products={products} categoryName={data.category} currentProductId={data._id} />
       </div>
-      <RelatedProducts products={products} categoryName={data.category} currentProductId={data._id} />
     </div>
   );
 }

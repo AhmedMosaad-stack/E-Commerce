@@ -22,9 +22,16 @@ export default function RelatedProducts({
 
   return (
     <>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-7 mt-5">
-        {filteredProducts.slice(0, visibleProducts).map((product: Product) => (
-          <div key={product._id}>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-7 mt-5 transition-all duration-500">
+        {filteredProducts.slice(0, visibleProducts).map((product: Product, index) => (
+          <div 
+            key={product._id}
+            className={`${index < 4 ? '' : 'opacity-0 animate-slideUpFade'}`}
+            style={index >= 4 ? { 
+              animationDelay: `${(index - 4) * 30}ms`,
+              animationFillMode: 'forwards'
+            } : {}}
+          >
             {product.priceAfterDiscount ? (
               <TodaySaleProduct product={product} /> // فيه خصم
             ) : (
@@ -33,6 +40,7 @@ export default function RelatedProducts({
           </div>
         ))}
       </div>
+      <div className="transition-all duration-500">
       {visibleProducts === 4 ? (
         <>
           <Button
@@ -54,6 +62,7 @@ export default function RelatedProducts({
           </Button>
         </>
       )}
+      </div>
     </>
   );
 }

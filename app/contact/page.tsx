@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import ScrollAnimation from "../_components/ScrollAnimation";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -59,13 +60,14 @@ export default function Contact() {
   };
   return (
     <div className="w-[90%] mx-auto py-10 mb-32">
+      <ScrollAnimation />
       {/* Breadcrumb */}
       <div className="text-sm text-gray-600 mb-16">
         <Link href="/" className="hover:text-black">Home</Link> / <span className="text-black">Contact</span>
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col md:flex-row gap-8 items-stretch">
+      <div className="scroll-section flex flex-col md:flex-row gap-8 items-stretch">
         {/* Left Side - Contact Info */}
         <div className="w-full md:w-80 shrink-0 flex flex-col gap-8">
           {/* Call To Us */}

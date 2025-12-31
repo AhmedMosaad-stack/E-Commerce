@@ -19,6 +19,7 @@ import {
   changeUserDataSchemaType,
 } from "@/schema/changeUserData.schema";
 import changeUserData from "@/lib/services/changeUserData";
+import ScrollAnimation from "../_components/ScrollAnimation";
 
 export default function Settings() {
   const { data: session } = useSession();
@@ -118,6 +119,7 @@ export default function Settings() {
 
   return (
     <div className="w-[90%] mx-auto py-10 pb-20 mb-16">
+      <ScrollAnimation />
       {/* Breadcrumb and Welcome */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 md:mb-16">
         <div className="text-sm text-gray-600">
@@ -135,7 +137,7 @@ export default function Settings() {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-20">
+      <div className="scroll-section flex flex-col lg:flex-row gap-8 lg:gap-20">
         {/* Left Sidebar */}
         <div className="w-full lg:w-56 shrink-0">
           <div className="space-y-6">

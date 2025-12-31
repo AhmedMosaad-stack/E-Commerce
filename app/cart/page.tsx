@@ -26,6 +26,7 @@ import { PiShoppingCartThin } from "react-icons/pi";
 import { clearCart } from "@/lib/services/clearCart";
 import { CartContext } from "@/context/CartContext";
 import { Input } from "@/components/ui/input";
+import ScrollAnimation from "../_components/ScrollAnimation";
 
 export default function Cart() {
   const { cartNumber, setcartNumber } = useContext(CartContext)!;
@@ -125,9 +126,10 @@ export default function Cart() {
   }
   return (
     <div className=" mx-auto w-[90%] py-10">
+      <ScrollAnimation />
       {products?.length > 0 ? (
         <>
-          <div className="overflow-x-auto">
+          <div className="scroll-section overflow-x-auto">
           <Table className="w-full table-fixed min-w-[600px]">
             <TableHeader>
               <TableRow className="">
@@ -221,7 +223,7 @@ export default function Cart() {
               Clear Cart
             </Button>
           </div>
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mt-12">
+          <div className="scroll-section flex flex-col lg:flex-row justify-between items-start gap-8 mt-12">
             <div className="coupon flex flex-col sm:flex-row gap-3 items-stretch w-full lg:w-auto">
               <Input
                 type="text"
