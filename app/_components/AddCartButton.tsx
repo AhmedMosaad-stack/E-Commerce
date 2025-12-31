@@ -5,7 +5,7 @@ import { addToCart } from "@/lib/services/addToCart";
 import React, { useState, useContext } from "react";
 import { toast } from "sonner";
 
-export default function AddCartButton({ id }: { id: string }) {
+export default function AddCartButton({ id, className, loadingClassName }: { id: string; className?: string; loadingClassName?: string }) {
   const { cartNumber, setcartNumber } = useContext(CartContext)!;
   const [isLoading, setisLoading] = useState(false);
   async function checkAddtoCart(id: string) {
@@ -34,11 +34,11 @@ export default function AddCartButton({ id }: { id: string }) {
   return (
     <>
       {!isLoading ? (
-        <Button className="cursor-pointer" onClick={() => checkAddtoCart(id)}>
+        <Button className={`cursor-pointer ${className || ""}`} onClick={() => checkAddtoCart(id)}>
           Add To Cart
         </Button>
       ) : (
-        <Button disabled={true}>
+        <Button disabled={true} className={loadingClassName || ""}>
           <span className="loader size-6! before:bg-white!"></span>
         </Button>
       )}

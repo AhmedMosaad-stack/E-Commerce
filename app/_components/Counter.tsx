@@ -4,14 +4,15 @@ import React, { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { LiaMinusSolid } from "react-icons/lia";
 import { TfiPlus } from "react-icons/tfi";
+import AddCartButton from "./AddCartButton";
 
-export default function Counter() {
+export default function Counter({id}: {id: string}) {
   const [counter, setcounter] = useState(1);
 
   return (
     <div>
-      <div className="counter flex items-center  justify-between gap-3 my-5">
-        <div className="flex rounded-sm my-3 text-center items-center">
+      <div className="counter flex flex-col sm:flex-row items-center gap-3 my-5">
+        <div className="flex rounded-sm text-center items-center">
           <div
             className="less border border-gray-400 rounded-l-sm p-3 cursor-pointer hover:bg-red-600 hover:text-white hover:border-red-600"
             onClick={() => {
@@ -32,11 +33,8 @@ export default function Counter() {
             <TfiPlus />
           </div>
         </div>
-        <Button className="my-3 p-5 bg-red-600 px-12 rounded-sm cursor-pointer">
-          Buy Now
-        </Button>
+        <AddCartButton id={id} className="bg-red-600/75 hover:bg-red-700 text-white px-8 sm:px-16 py-5 text-sm w-full sm:w-auto" loadingClassName="bg-red-600/75 px-8 sm:px-16 py-5 text-sm w-full sm:w-auto" />
 
-        <CiHeart className="text-[38px] my-3 border border-gray-400 rounded-sm p-1" />
       </div>
     </div>
   );

@@ -1,0 +1,13 @@
+/* Custom styles for product image swiper */
+.product-mobile-swiper {
+  padding-bottom: 40px !important;
+}
+
+.product-mobile-swiper .swiper-pagination-bullet {
+  background: #dc2626;
+  opacity: 0.5;
+}
+
+.product-mobile-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
