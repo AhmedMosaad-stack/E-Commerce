@@ -150,14 +150,14 @@ export default function Navbar() {
                     </div>
                     
                     {isProfileOpen && (
-                      <div className="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 backdrop-blur-lg z-50">
+                      <div className="profile-menu absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 backdrop-blur-lg z-50">
                         <div className="py-2">
                           <div 
                             onClick={() => {
                               router.push('/settings');
                               setIsProfileOpen(false);
                             }}
-                            className="flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
+                            className="profile-menu-item flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
                           >
                             <RiAccountCircleLine className="text-xl" />
                             <span className="text-sm">Manage My Account</span>
@@ -168,21 +168,21 @@ export default function Navbar() {
                               router.push('/allorders');
                               setIsProfileOpen(false);
                             }}
-                            className="flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
+                            className="profile-menu-item flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
                           >
                             <BsHandbag className="text-xl" />
                             <span className="text-sm">My Order</span>
                           </div>
                           
                           <div 
-                            className="flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
+                            className="profile-menu-item flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
                           >
                             <MdOutlineCancel className="text-xl" />
                             <span className="text-sm">My Cancellations</span>
                           </div>
                           
                           <div 
-                            className="flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
+                            className="profile-menu-item flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
                           >
                             <AiOutlineStar className="text-xl" />
                             <span className="text-sm">My Reviews</span>
@@ -193,7 +193,7 @@ export default function Navbar() {
                               logOut();
                               setIsProfileOpen(false);
                             }}
-                            className="flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
+                            className="profile-menu-item flex items-center gap-3 px-4 py-2.5 text-white hover:bg-white/10 cursor-pointer transition-colors"
                           >
                             <TbLogout className="text-xl" />
                             <span className="text-sm">Logout</span>
@@ -212,7 +212,7 @@ export default function Navbar() {
                     <HiMenuAlt3 />
                   </button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white p-6">
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white p-6 overflow-y-auto">
                   <SheetHeader className="mb-8">
                     <SheetTitle className="text-2xl font-bold text-[#DB4444] text-left">Exclusive</SheetTitle>
                   </SheetHeader>
@@ -222,21 +222,21 @@ export default function Navbar() {
                     <nav className="flex flex-col gap-2">
                       <Link 
                         href="/" 
-                        className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                        className="menu-item text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-sm" 
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Home
                       </Link>
                       <Link 
                         href="/about" 
-                        className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                        className="menu-item text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-sm" 
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         About
                       </Link>
                       <Link 
                         href="/contact" 
-                        className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                        className="menu-item text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-sm" 
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Contact
@@ -247,14 +247,14 @@ export default function Navbar() {
                           <div className="border-t border-gray-200 mt-4 pt-4 flex flex-col gap-2">
                             <Link 
                               href="/login" 
-                              className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                              className="menu-item text-base text-white bg-[#DB4444] hover:bg-[#c73d3d] transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-lg text-center" 
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               Login
                             </Link>
                             <Link 
                               href="/signup" 
-                              className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                              className="menu-item text-base text-[#DB4444] border-2 border-[#DB4444] hover:bg-[#DB4444] hover:text-white transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-lg text-center" 
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               Sign Up
@@ -266,14 +266,14 @@ export default function Navbar() {
                           <div className="border-t border-gray-200 mt-4 pt-4 flex flex-col gap-2">
                             <Link 
                               href="/settings" 
-                              className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                              className="menu-item text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-sm" 
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               My Account
                             </Link>
                             <Link 
                               href="/allorders" 
-                              className="text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg" 
+                              className="menu-item text-base text-gray-800 hover:text-[#DB4444] hover:bg-gray-50 transition-all duration-200 py-3 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-sm" 
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               My Orders
@@ -283,7 +283,7 @@ export default function Navbar() {
                                 logOut(); 
                                 setIsMobileMenuOpen(false); 
                               }} 
-                              className="text-base text-gray-800 cursor-pointer hover:text-[#DB4444] hover:bg-gray-50 transition-all py-3 px-4 font-medium rounded-lg block"
+                              className="menu-item text-base text-white bg-red-600 hover:bg-red-700 cursor-pointer transition-all duration-200 py-2 px-4 font-medium rounded-lg hover:scale-105 hover:shadow-lg text-center block"
                             >
                               Log Out
                             </span>
