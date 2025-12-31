@@ -36,7 +36,7 @@ export default function RootLayout({
 
           <Toaster />
           <Navbar />
-          {children}
+          <div className="pt-[72px]">{children}</div>
           <Footer />
           </CartContextProvider>
         </MySessionProvider>

@@ -30,6 +30,8 @@ export default function Navbar() {
   const { data: session } = useSession();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -46,13 +48,35 @@ export default function Navbar() {
     };
   }, []);
 
+  // Handle navbar visibility on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < lastScrollY || currentScrollY < 10) {
+        // Scrolling up or at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setIsVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   function logOut() {
     signOut({ callbackUrl: "/login" });
   }
 
   return (
     <>
-      <div className="border-b border-gray-300">
+      <div className={`border-b border-gray-300 fixed top-0 left-0 right-0 bg-white z-40 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
         <nav className="flex justify-between mx-auto w-[90%] items-center gap-4 py-3">
           {/* Logo - Left */}
           <div className="left shrink-0">
