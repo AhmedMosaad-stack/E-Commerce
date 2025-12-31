@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import login from "@/public/register-login.jpg";
 import { Input } from "@/components/ui/input";
@@ -115,7 +116,7 @@ export default function Login() {
             {!isLoading ? (
               <Button
                 variant="outline"
-                className="bg-red-600/75 border-red-600/75 text-white  px-10 py-5 my-5 cursor-pointer"
+                className="bg-red-600/75 border-red-600/75 text-white  px-12 py-4 my-5 cursor-pointer"
                 type="submit"
               >
                 Login
@@ -130,8 +131,11 @@ export default function Login() {
                 <span className="loader size-6!"></span>
               </Button>
             )}
-            <p className="cursor-pointer text-red-600/75 text-[15px]">
-              Forgot Password?
+            <p className="text-[13px]">
+              Don&apos;t have an account?{" "}
+              <Link href="/signup" className="text-red-600/75 hover:underline">
+                Sign up now
+              </Link>
             </p>
           </div>
         </form>

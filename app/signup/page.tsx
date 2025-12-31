@@ -191,9 +191,9 @@ export default function Signup() {
           <FaGoogle />
           Sign Up with Google
         </Button>
-        <div className="flex gap-3 text-gray-500 justify-center mt-3">
+        <div className="flex gap-2 text-gray-500 justify-center mt-3 text-[14px]">
           <p>Already have account?</p>
-          <Link href={"/login"} className="underline">
+          <Link href={"/login"} className="text-red-600/75 hover:underline">
             Log in
           </Link>
         </div>
