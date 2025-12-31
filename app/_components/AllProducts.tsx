@@ -21,16 +21,7 @@ export default function AllProducts({ products }: { products: Product[] }) {
       </div>
       <div className="subtitle flex justify-between items-center">
         <h2 className="text-2xl font-semibold ">Explore Our Products</h2>
-        <p className="flex text-2xl gap-2">
-          <BsArrowLeft
-            className="text-[27px] cursor-pointer p-1 bg-gray-100 rounded-full"
-            onClick={() => swiperRef.current?.slidePrev()}
-          />
-          <BsArrowRight
-            className="text-[27px] cursor-pointer p-1 bg-gray-100 rounded-full"
-            onClick={() => swiperRef.current?.slideNext()}
-          />
-        </p>
+      
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-7 mt-5">
         {filteredProducts.slice(0, visibleProducts).map((product: Product) => (

@@ -95,7 +95,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Section - Icons & Mobile Menu */}
-          <div className="right flex-shrink-0">
+          <div className="right shrink-0">
             <div className="flex items-center gap-2 md:gap-3">
               {/* Search - Hidden on Mobile */}
               <div className="relative hidden md:block">
@@ -106,7 +106,6 @@ export default function Navbar() {
               {/* Icons - Heart, Cart, Profile */}
               {session && (
                 <>
-                  <CiHeart className="text-3xl cursor-pointer" />
                   <Link href={"/cart"} className="relative">
                     <PiShoppingCartThin className="text-[28px] cursor-pointer" />
                     {cartNumber > 0 && (

@@ -28,7 +28,6 @@ export default function ProductCard({ product }: { product: Product }) {
             className="object-contain size-[200px] mx-auto"
           />
           <div className="icons absolute right-2 top-0 flex flex-col gap-2">
-            <CiHeart className="text-[33px] p-1 bg-gray-100 rounded-full cursor-pointer" />
             <Link href={`/product/${product._id}`}>
               <PiEyeThin className="text-[33px] p-1 bg-gray-100 rounded-full cursor-pointer" />
             </Link>

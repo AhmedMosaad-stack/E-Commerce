@@ -1,11 +1,11 @@
 "use server";
 
-import { cashPaymentSchemaType } from "@/schema/cashPayment.schema";
+import { paymentSchemaType } from "@/schema/cashPayment.schema";
 import { getMytoken } from "@/utilities/getMytoken";
 
 export default async function cashPayment(
   cartId: string,
-  formValues: cashPaymentSchemaType
+  formValues: paymentSchemaType
 ) {
   const token = await getMytoken();
 

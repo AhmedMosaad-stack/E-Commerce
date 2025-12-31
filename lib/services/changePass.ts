@@ -1,3 +1,4 @@
+"use server";
 import { changePassSchemaType } from "@/schema/changePass.schema";
 import { getMytoken } from "@/utilities/getMytoken";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useContext } from "react";
+import  { useState, useEffect, useContext } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -8,8 +8,8 @@ import { Field, FieldError } from "@/components/ui/field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import {
-  cashPaymentSchema,
-  cashPaymentSchemaType,
+  paymentSchema,
+  paymentSchemaType,
 } from "@/schema/cashPayment.schema";
 import { useParams, useRouter } from "next/navigation";
 import { Label } from "@radix-ui/react-label";
@@ -34,14 +34,14 @@ export default function Payment() {
 const {setcartNumber} = useContext(CartContext)!
   const router = useRouter();
 
-  const form = useForm<cashPaymentSchemaType>({
+  const form = useForm<paymentSchemaType>({
     defaultValues: {
       details: "details",
       phone: "",
       city: "",
     },
     mode: "onBlur",
-    resolver: zodResolver(cashPaymentSchema),
+    resolver: zodResolver(paymentSchema),
   });
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const {setcartNumber} = useContext(CartContext)!
     fetchCart();
   }, []);
 
-  async function handlePayment(values: cashPaymentSchemaType) {
+  async function handlePayment(values: paymentSchemaType) {
     setIsSubmitting(true);
     try {
       if (paymentMethod === "cash") {

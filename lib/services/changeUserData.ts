@@ -1,3 +1,5 @@
+"use server";
+
 import { changeUserDataSchemaType } from "@/schema/changeUserData.schema";
 import { getMytoken } from "@/utilities/getMytoken";
 
