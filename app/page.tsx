@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <>
       <ScrollAnimation />
-      <div className="scroll-section">
+      <div>
         <FirstSlider />
       </div>
       <div className="scroll-section">
