@@ -1,9 +1,8 @@
 "use client";
-import React, { useContext, useState, useRef, useEffect } from "react";
+import  { useContext, useState, useRef, useEffect } from "react";
 
 import Link from "next/link";
 
-import { CiHeart } from "react-icons/ci";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
@@ -195,12 +194,6 @@ export default function Navbar() {
                   </SheetHeader>
                   
                   <div className="flex flex-col gap-6">
-                    {/* Search on mobile */}
-                    <div className="relative">
-                      <Input placeholder="What are you looking for?" type="search" className="bg-gray-100 border-0 focus-visible:ring-0 pr-10 w-full text-gray-800 h-12 rounded-lg" />
-                      <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-gray-600" />
-                    </div>
-                    
                     {/* Navigation Links */}
                     <nav className="flex flex-col gap-2">
                       <Link 
