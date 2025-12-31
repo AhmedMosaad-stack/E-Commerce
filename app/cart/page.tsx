@@ -46,7 +46,7 @@ export default function Cart() {
         setcartID(res.cartId);
       }
     } catch (err) {
-      console.log(err);
+      // Error handling
     } finally {
       setisLoading(false);
     }
@@ -55,7 +55,6 @@ export default function Cart() {
   async function deleteCartItem(id: string) {
     try {
       const res = await removeCartItem(id);
-      console.log(res);
       if (res.status === "success") {
         setproducts(res.data.products);
         setcartTotal(res.data.totalCartPrice);
@@ -71,7 +70,6 @@ export default function Cart() {
         setcartNumber(sum);
       }
     } catch (err) {
-      console.log(err);
       toast.error("Item can't be removed.", {
         position: "top-center",
         duration: 3000,
@@ -86,7 +84,6 @@ export default function Cart() {
     try {
       setupdate(true);
       const res = await updateCartItem(id, count);
-      console.log(res);
       if (res.status === "success") {
         setproducts(res.data.products);
         setcartTotal(res.data.totalCartPrice);
@@ -94,7 +91,7 @@ export default function Cart() {
         else if (sign === "-") setcartNumber(cartNumber - 1);
       }
     } catch (err) {
-      console.log(err);
+      // Error handling
     } finally {
       setupdate(false);
     }
@@ -115,7 +112,7 @@ export default function Cart() {
         setcartTotal("0");
       }
     } catch (err) {
-      console.log(err);
+      // Error handling
     } finally {
       setclearBtn(false);
     }

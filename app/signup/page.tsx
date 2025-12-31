@@ -48,7 +48,6 @@ export default function Signup() {
         }
       })
       .catch((err) => {
-        console.log(err.response.data.message);
         toast.error(err.response.data.message + "!", {
           position: "top-center",
           duration: 3000,

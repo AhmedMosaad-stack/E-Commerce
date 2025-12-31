@@ -4,7 +4,6 @@ import { getMytoken } from "@/utilities/getMytoken";
 
 export async function getUserCart() {
   const token = await getMytoken();
-  console.log(token);
 
   if (!token) {
     throw new Error("Please log in first!");

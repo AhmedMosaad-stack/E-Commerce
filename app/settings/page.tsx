@@ -50,13 +50,18 @@ export default function Settings() {
     setIsLoadingUserData(true);
     try {
       const res = await changeUserData(values);
-      console.log(res);
       if (res.message === "success") {
-        toast.success("Profile updated successfully!", {
+        toast.success("Profile updated successfully! Logging out...", {
           position: "top-center",
-          duration: 3000,
+          duration: 2000,
           style: { backgroundColor: "#ffffff", color: "green" },
         });
+        userDataForm.reset();
+
+        // Logout after 2 seconds
+        setTimeout(() => {
+          signOut({ callbackUrl: "/login" });
+        }, 2000);
       } else {
         toast.error(res.message || "Failed to update profile!", {
           position: "top-center",
@@ -79,7 +84,6 @@ export default function Settings() {
     setIsLoading(true);
     try {
       const res = await changePass(values);
-      console.log(res);
       if (res.message === "success") {
         toast.success("Password changed successfully! Logging out...", {
           position: "top-center",
@@ -93,7 +97,6 @@ export default function Settings() {
           signOut({ callbackUrl: "/login" });
         }, 2000);
       } else {
-        console.log(res);
 
         toast.error(res.errors.msg || "Failed to change password!", {
           position: "top-center",
@@ -412,7 +415,7 @@ export default function Settings() {
                     <Button
                       type="submit"
                       disabled={isLoading}
-                      className="px-10 bg-[#DB4444] hover:bg-[#c93939] disabled:opacity-50"
+                      className="px-10 bg-red-600/75 hover:bg-red-700 cursor-pointer disabled:opacity-50"
                     >
                       {isLoading ? "Saving..." : "Save Changes"}
                     </Button>

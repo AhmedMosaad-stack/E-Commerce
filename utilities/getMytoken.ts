@@ -15,9 +15,9 @@ export async function getMytoken() {
       token: secretToken,
       secret: process.env.NEXTAUTH_SECRET!,
     });
-    
+      
     return token?.token || null;
   } catch (err) {
-    console.log(err);
+    // Error handling
   }
 }

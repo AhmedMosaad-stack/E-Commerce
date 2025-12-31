@@ -8,6 +8,7 @@ import { getAllProducts } from "@/lib/services/getAllProducts";
 import RelatedProducts from "../../_components/RelatedProducts";
 import ProductImageSwiper from "../../_components/ProductImageSwiper";
 import "../product.css";
+import { getMytoken } from "@/utilities/getMytoken";
 
 export interface Params {
   id: string;
@@ -20,10 +21,10 @@ export default async function Details({ params }: { params: Promise<Params> }): 
     `https://ecommerce.routemisr.com/api/v1/products/${id}`
   );
   const { data }: { data: ProductDetails } = await res.json();
-  console.log(data);
   
   const sizes: string[] = ["XS", "S", "M", "L", "XL"];
   const products: Product[] = await getAllProducts();
+const token = await getMytoken()
 
   return (
     <div className=" mx-auto w-[90%] p-10">

@@ -25,7 +25,6 @@ export default function AddCartButton({ id, className, loadingClassName }: { id:
     try {
       setisLoading(true);
       const res = await addToCart(id);
-      console.log(res);
       if (res?.status === "success") {
         toast.success(res?.message, {
           position: "top-center",

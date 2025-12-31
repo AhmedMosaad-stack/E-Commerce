@@ -95,7 +95,6 @@ const {setcartNumber} = useContext(CartContext)!
         }
       }
     } catch (err) {
-      console.log(err);
       toast.error("An error occurred during payment!", {
         position: "top-center",
         duration: 3000,
