@@ -18,7 +18,7 @@ import { useSession } from "next-auth/react";
 export default function TodaySaleProduct({ product }: { product: Product }) {
   const { data: session } = useSession();
   return (
-    <Card className="border-0 shadow rounded-2xl mt-5 mb-3 gap-2 group">
+    <Card className="border-0 shadow rounded-2xl gap-2 group">
       <CardHeader className="p-0">
         <CardTitle className="relative overflow-hidden">
           <Image
@@ -52,17 +52,16 @@ export default function TodaySaleProduct({ product }: { product: Product }) {
       <CardContent className="text-sm line-clamp-1 font-semibold">
         {product.title}
       </CardContent>
-      <CardFooter className="flex flex-col items-start gap-3">
-        <div className="flex items-center justify-start gap-2">
+      <CardFooter className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <p className="text-red-600 font-semibold text-[14px]">
             ${product.priceAfterDiscount}
           </p>
-
-          <p className="text-gray-500 font-semibold text-[14px] line-through">
+          <p className="text-gray-500 font-semibold text-[12px] line-through">
             ${product.price}
           </p>
         </div>
-        <div className="flex text-yellow-400 items-center">
+        <div className="flex text-yellow-400">
           {[...Array(5)].map((_, i) => (
             <FaStar
               key={i}
@@ -73,10 +72,10 @@ export default function TodaySaleProduct({ product }: { product: Product }) {
               }
             />
           ))}
-          <p className="text-sm ml-1 text-gray-500 font-semibold">
-            ({product.ratingsQuantity}){" "}
-          </p>
         </div>
+        <p className="ml-1 text-sm text-gray-500 font-semibold">
+          ({product.ratingsQuantity}){" "}
+        </p>
       </CardFooter>
     </Card>
   );
