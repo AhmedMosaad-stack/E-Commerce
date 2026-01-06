@@ -30,15 +30,14 @@ export default function AllProducts({ products }: { products: Product[] }) {
       }
       
       setInitialCount(count);
-      if (visibleProducts === initialCount) {
-        setvisibleProducts(count);
-      }
+      // Only update visible products if user hasn't expanded the list yet
+      setvisibleProducts(prev => prev <= initialCount ? count : prev);
     };
     
     updateInitialCount();
     window.addEventListener('resize', updateInitialCount);
     return () => window.removeEventListener('resize', updateInitialCount);
-  }, []);
+  }, [initialCount]);
   
   const filteredProducts = products.filter(
     (product) => !product.priceAfterDiscount
