@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Product } from "@/lib/interfaces/product";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
@@ -7,7 +7,39 @@ import { Button } from "@/components/ui/button";
 
 export default function AllProducts({ products }: { products: Product[] }) {
   const swiperRef = useRef<{ slidePrev: () => void; slideNext: () => void } | null>(null);
+  const [initialCount, setInitialCount] = useState(6);
   const [visibleProducts, setvisibleProducts] = useState(6);
+  
+  useEffect(() => {
+    const updateInitialCount = () => {
+      const width = window.innerWidth;
+      let count = 6;
+      
+      if (width < 640) {
+        count = 1; // 1 column x 1 row
+      } else if (width < 768) {
+        count = 2; // 2 columns x 1 row
+      } else if (width < 1024) {
+        count = 3; // 3 columns x 1 row
+      } else if (width < 1280) {
+        count = 4; // 4 columns x 1 row
+      } else if (width < 1536) {
+        count = 5; // 5 columns x 1 row
+      } else {
+        count = 6; // 6 columns x 1 row
+      }
+      
+      setInitialCount(count);
+      if (visibleProducts === initialCount) {
+        setvisibleProducts(count);
+      }
+    };
+    
+    updateInitialCount();
+    window.addEventListener('resize', updateInitialCount);
+    return () => window.removeEventListener('resize', updateInitialCount);
+  }, []);
+  
   const filteredProducts = products.filter(
     (product) => !product.priceAfterDiscount
   );
@@ -27,9 +59,9 @@ export default function AllProducts({ products }: { products: Product[] }) {
         {filteredProducts.slice(0, visibleProducts).map((product: Product, index) => (
           <div 
             key={product._id}
-            className={`${index < 6 ? '' : 'opacity-0 animate-slideUpFade'}`}
-            style={index >= 6 ? { 
-              animationDelay: `${(index - 6) * 30}ms`,
+            className={`${index < initialCount ? '' : 'opacity-0 animate-slideUpFade'}`}
+            style={index >= initialCount ? { 
+              animationDelay: `${(index - initialCount) * 30}ms`,
               animationFillMode: 'forwards'
             } : {}}
           >
@@ -38,7 +70,7 @@ export default function AllProducts({ products }: { products: Product[] }) {
         ))}
       </div>
       <div className="transition-all duration-500">
-      {visibleProducts === 6 ? (
+      {visibleProducts === initialCount ? (
         <>
           <Button
             className="mx-auto flex my-10 bg-red-600/75 px-10 cursor-pointer"
@@ -53,7 +85,7 @@ export default function AllProducts({ products }: { products: Product[] }) {
           <Button
             className="mx-auto flex my-10 bg-red-600/75 px-10 cursor-pointer"
             size={"lg"}
-            onClick={() => setvisibleProducts(6)}
+            onClick={() => setvisibleProducts(initialCount)}
           >
             Show Less
           </Button>
