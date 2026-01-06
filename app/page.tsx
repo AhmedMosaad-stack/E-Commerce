@@ -32,8 +32,8 @@ export default async function Home() {
           <p className="text-3xl md:text-5xl">Enhance Your <br /> Music Experience</p>
           <Button className="w-full md:w-[40%] mt-3 bg-green-400 rounded-sm cursor-pointer hover:bg-green-800" size={"lg"}>Buy Now!</Button>
         </div>
-        <div className="right w-full md:w-[50%]">
-          <Image src={jbl} alt="JBL" className="size-full object-contain"/>
+        <div className="right w-full md:w-[50%] max-w-[500px] max-h-[400px]">
+          <Image src={jbl} alt="JBL" className="w-full h-full object-contain"/>
         </div>
       </div>
       <div className="scroll-section">

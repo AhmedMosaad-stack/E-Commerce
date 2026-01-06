@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function AllProducts({ products }: { products: Product[] }) {
   const swiperRef = useRef<{ slidePrev: () => void; slideNext: () => void } | null>(null);
-  const [visibleProducts, setvisibleProducts] = useState(8);
+  const [visibleProducts, setvisibleProducts] = useState(6);
   const filteredProducts = products.filter(
     (product) => !product.priceAfterDiscount
   );
@@ -23,13 +23,13 @@ export default function AllProducts({ products }: { products: Product[] }) {
         <h2 className="text-2xl font-semibold ">Explore Our Products</h2>
       
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-7 mt-5 transition-all duration-500">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-7 mt-5 transition-all duration-500">
         {filteredProducts.slice(0, visibleProducts).map((product: Product, index) => (
           <div 
             key={product._id}
-            className={`${index < 8 ? '' : 'opacity-0 animate-slideUpFade'}`}
-            style={index >= 8 ? { 
-              animationDelay: `${(index - 8) * 30}ms`,
+            className={`${index < 6 ? '' : 'opacity-0 animate-slideUpFade'}`}
+            style={index >= 6 ? { 
+              animationDelay: `${(index - 6) * 30}ms`,
               animationFillMode: 'forwards'
             } : {}}
           >
@@ -38,7 +38,7 @@ export default function AllProducts({ products }: { products: Product[] }) {
         ))}
       </div>
       <div className="transition-all duration-500">
-      {visibleProducts === 8 ? (
+      {visibleProducts === 6 ? (
         <>
           <Button
             className="mx-auto flex my-10 bg-red-600/75 px-10 cursor-pointer"
@@ -53,7 +53,7 @@ export default function AllProducts({ products }: { products: Product[] }) {
           <Button
             className="mx-auto flex my-10 bg-red-600/75 px-10 cursor-pointer"
             size={"lg"}
-            onClick={() => setvisibleProducts(8)}
+            onClick={() => setvisibleProducts(6)}
           >
             Show Less
           </Button>

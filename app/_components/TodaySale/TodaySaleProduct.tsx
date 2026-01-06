@@ -18,7 +18,7 @@ import { useSession } from "next-auth/react";
 export default function TodaySaleProduct({ product }: { product: Product }) {
   const { data: session } = useSession();
   return (
-    <Card className="border-0 shadow rounded-2xl gap-2 group">
+    <Card className="border-0 my-2 shadow rounded-2xl gap-2 group">
       <CardHeader className="p-0">
         <CardTitle className="relative overflow-hidden">
           <Image

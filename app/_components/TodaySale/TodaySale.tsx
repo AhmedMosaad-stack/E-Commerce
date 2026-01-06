@@ -122,11 +122,11 @@ export default function TodaySale({ products }: { products: Product[] }) {
           />
         </div>
       </div>
-      <div className="products">
+      <div className="products py-4">
         <div className="">
           <Swiper
             spaceBetween={20}
-            slidesPerView={4}
+            slidesPerView={6}
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
@@ -135,7 +135,8 @@ export default function TodaySale({ products }: { products: Product[] }) {
               640: { slidesPerView: 2 },
               768: { slidesPerView: 3 },
               1024: { slidesPerView: 4 },
-              1280: { slidesPerView: 4 },
+              1280: { slidesPerView: 5 },
+              1536: { slidesPerView: 6 },
             }}
           >
             {filteredProducts.map((product: Product) => (
