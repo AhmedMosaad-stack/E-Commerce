@@ -59,7 +59,7 @@ export default function Contact() {
     });
   };
   return (
-    <div className="w-[90%] mx-auto py-10 mb-32">
+    <div className="min-h-screen w-[90%] mx-auto py-10 mb-32">
       <ScrollAnimation />
       {/* Breadcrumb */}
       <div className="text-sm text-gray-600 mb-16">

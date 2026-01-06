@@ -118,7 +118,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="w-[90%] mx-auto py-10 pb-20 mb-16">
+    <div className="min-h-screen w-[90%] mx-auto py-10 pb-20 mb-16">
       <ScrollAnimation />
       {/* Breadcrumb and Welcome */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 md:mb-16">

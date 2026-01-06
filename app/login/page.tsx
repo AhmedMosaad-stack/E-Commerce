@@ -54,7 +54,7 @@ export default function Login() {
     }
   }
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-6 p-4 md:p-10 gap-8 md:gap-16">
+    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-6 p-4 md:p-10 gap-8 md:gap-16">
       <div className="image-holder hidden lg:block lg:col-span-4">
         <Image src={login} alt="shopping" />
       </div>
