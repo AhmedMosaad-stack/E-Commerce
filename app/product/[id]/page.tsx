@@ -19,7 +19,7 @@ export interface Params {
 export default async function Details({ params }: { params: Promise<Params> }): Promise<ReactNode> {
   const { id } = await params;
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/products/${id}`
+    `${process.env.API}/products/${id}`
   );
   const { data }: { data: ProductDetails } = await res.json();
   

@@ -14,7 +14,7 @@ export default async function cashPayment(
   }
 
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/orders/${cartId}`,
+    `${process.env.API}/orders/${cartId}`,
     {
       method: "POST",
       headers: {

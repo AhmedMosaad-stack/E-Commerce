@@ -9,7 +9,7 @@ export default async function changeUserData(values: changeUserDataSchemaType) {
     throw new Error("No authentication token found");
   }
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/users/updateMe/`,
+    `${process.env.API}/users/updateMe/`,
     {
       method: "PUT",
       headers: {

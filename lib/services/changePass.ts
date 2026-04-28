@@ -10,7 +10,7 @@ export default async function changePass(values: changePassSchemaType) {
   }
 
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/users/changeMyPassword`,
+    `${process.env.API}/users/changeMyPassword`,
     {
       method: "PUT",
       headers: {

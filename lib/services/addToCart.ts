@@ -8,7 +8,7 @@ export async function addToCart(id: string) {
     throw new Error("No authentication token found");
   }
 
-  const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart`, {
+  const res = await fetch(`${process.env.API}/cart`, {
     method: "POST",
     headers: {
       token,

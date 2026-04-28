@@ -36,7 +36,7 @@ export default function Signup() {
   async function handleRegister(values: registerSchemaType) {
     setIsLoading(true);
     axios
-      .post("https://ecommerce.routemisr.com/api/v1/auth/signup", values)
+      .post(`${process.env.NEXT_PUBLIC_API}/auth/signup`, values)
       .then((response) => {
         if (response.data.message === "success") {
           toast.success("Account successfully created!", {

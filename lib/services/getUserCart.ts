@@ -8,7 +8,7 @@ export async function getUserCart() {
   if (!token) {
     throw new Error("Please log in first!");
   }
-  const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart`, {
+  const res = await fetch(`${process.env.API_V2}/cart`, {
     method: "GET",
     headers: {
       token,

@@ -15,7 +15,7 @@ export default async function bankPayment(
   }
 
   const res = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${url}`,
+    `${process.env.API}/orders/checkout-session/${cartId}?url=${url}`,
     {
       method: "POST",
       headers: {

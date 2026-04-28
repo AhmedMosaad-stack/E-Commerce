@@ -8,7 +8,7 @@ export async function clearCart() {
     throw new Error("No authentication token found");
   }
 
-  const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart`, {
+  const res = await fetch(`${process.env.API}/cart`, {
     method: "DELETE",
     headers: {
       token,

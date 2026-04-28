@@ -8,7 +8,7 @@ export async function removeCartItem(id: string) {
     throw new Error("No authentication token found");
   }
 
-  const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, {
+  const res = await fetch(`${process.env.API_V2}/cart/${id}`, {
     method: "DELETE",
     headers: {
       token,
