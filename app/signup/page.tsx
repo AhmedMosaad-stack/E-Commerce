@@ -16,8 +16,8 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { registerSchema, registerSchemaType } from "@/schema/register.schema";
-import axios from "axios";
 import { useRouter } from "next/navigation";
+import signup from "@/lib/services/signup";
 
 export default function Signup() {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,26 +35,31 @@ export default function Signup() {
 
   async function handleRegister(values: registerSchemaType) {
     setIsLoading(true);
-    axios
-      .post(`${process.env.NEXT_PUBLIC_API}/auth/signup`, values)
-      .then((response) => {
-        if (response.data.message === "success") {
-          toast.success("Account successfully created!", {
-            position: "top-center",
-            duration: 3000,
-            style: { backgroundColor: "#ffffff", color: "green" },
-          });
-          router.push("/login");
-        }
-      })
-      .catch((err) => {
-        toast.error(err.response.data.message + "!", {
+    try {
+      const payload = await signup(values);
+      if (payload.message === "success") {
+        toast.success("Account successfully created!", {
+          position: "top-center",
+          duration: 3000,
+          style: { backgroundColor: "#ffffff", color: "green" },
+        });
+        router.push("/login");
+      } else {
+        toast.error(payload.message + "!", {
           position: "top-center",
           duration: 3000,
           style: { backgroundColor: "#ffffff", color: "red" },
         });
-      })
-      .finally(() => setIsLoading(false));
+      }
+    } catch {
+      toast.error("Something went wrong!", {
+        position: "top-center",
+        duration: 3000,
+        style: { backgroundColor: "#ffffff", color: "red" },
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
